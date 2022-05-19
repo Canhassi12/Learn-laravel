@@ -20,3 +20,7 @@ Route::get('/', function () {
 });
 
 Route::get('/anime', [AnimeController::class, 'index']);
+
+Route::get('/anime/{name}/{score}/{watchTimes?}', function($name, $score, $watchTimes = '1') {
+    echo "name: $name | score: $score | watchTimes: $watchTimes";
+});

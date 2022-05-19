@@ -17,6 +17,7 @@ class AnimeController extends Controller
         return view('index', ['sexo'=> $sexo]);
     }
 
+    
     /**
      * Show the form for creating a new resource.
      *
