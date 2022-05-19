@@ -23,4 +23,4 @@ Route::get('/anime', [AnimeController::class, 'index']);
 
 Route::get('/anime/{name}/{score}/{watchTimes?}', function($name, $score, $watchTimes = '1') {
     echo "name: $name | score: $score | watchTimes: $watchTimes";
-});
+})->where('name','[A-Za-z]+')->where('score', '[0-9]+');
