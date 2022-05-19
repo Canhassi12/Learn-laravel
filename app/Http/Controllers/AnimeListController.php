@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class AnimeController extends Controller
+class AnimeListController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,11 +13,9 @@ class AnimeController extends Controller
      */
     public function index()
     {
-        $fds = 'fds';
-        return view('index', ['fds'=> $fds]);
+        return view('list');
     }
 
-    
     /**
      * Show the form for creating a new resource.
      *
@@ -25,7 +23,7 @@ class AnimeController extends Controller
      */
     public function create()
     {
-        
+        //
     }
 
     /**
