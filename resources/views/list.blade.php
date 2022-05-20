@@ -10,3 +10,10 @@
     <h3>fodase</h3>
 </body>
 </html>
+
+{{-- salve --}}
+
+@php
+    // fodase
+    //  echo 'salve';   
+@endphp

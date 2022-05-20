@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Anime;
 use Illuminate\Http\Request;
 
 class AnimeController extends Controller
@@ -14,7 +15,8 @@ class AnimeController extends Controller
     public function index()
     {
         $fds = 'fds';
-        return view('index', ['fds'=> $fds]);
+        // return view('index', ['fds'=> $fds]); // array associativo
+        return view('index', compact('fds'));
     }
 
     
@@ -36,7 +38,17 @@ class AnimeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $inputs = $request->all();
+
+        $anime = new Anime();
+
+        $anime->name = $inputs['name'];
+        $anime->score = $inputs['score'];
+        $anime->rewatched = $inputs['rewatched'];
+        
+        $anime->save();
+
+        return redirect()->back()->with('success', 'anime add with success');
     }
 
     /**
