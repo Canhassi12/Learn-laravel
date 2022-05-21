@@ -24,6 +24,16 @@ Route::get('/anime', [AnimeController::class, 'index'])->name('site.index');
 
 Route::post('/anime', [AnimeController::class, 'store'])->name('anime.store');
 
+Route::prefix('/anime')->group(function () {
+    Route::get('/edit/{anime}', [AnimeController::class, 'edit'])->name('anime.edit'); 
+    Route::put('/update/{anime}', [AnimeController::class, 'update'])->name('anime.update'); 
+
+    Route::delete('/delete/{anime}', [AnimeController::class, 'destroy'])->name('anime.delete');
+});
+
+
+    
+
 Route::fallback(function () {
     echo 'this page its not found <a href="'.route('site.index').'"> return </a>';
 });

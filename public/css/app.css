@@ -443,6 +443,30 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-left: auto;
   margin-right: auto;
 }
+.mx-5 {
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+}
+.mx-10 {
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+}
+.my-32 {
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+}
+.mx-52 {
+  margin-left: 13rem;
+  margin-right: 13rem;
+}
+.mx-40 {
+  margin-left: 10rem;
+  margin-right: 10rem;
+}
+.mx-32 {
+  margin-left: 8rem;
+  margin-right: 8rem;
+}
 .ml-32 {
   margin-left: 8rem;
 }
@@ -503,6 +527,21 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mb-1 {
   margin-bottom: 0.25rem;
 }
+.mt-10 {
+  margin-top: 2.5rem;
+}
+.mt-12 {
+  margin-top: 3rem;
+}
+.ml-28 {
+  margin-left: 7rem;
+}
+.ml-24 {
+  margin-left: 6rem;
+}
+.mt-1 {
+  margin-top: 0.25rem;
+}
 .box-border {
   box-sizing: border-box;
 }
@@ -554,8 +593,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-\[314px\] {
   height: 314px;
 }
+.h-6 {
+  height: 1.5rem;
+}
 .min-h-screen {
   min-height: 100vh;
+}
+.min-h-full {
+  min-height: 100%;
 }
 .w-full {
   width: 100%;
@@ -590,6 +635,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 .w-32 {
   width: 8rem;
 }
+.w-max {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+.w-6 {
+  width: 1.5rem;
+}
 .max-w-6xl {
   max-width: 72rem;
 }
@@ -602,14 +655,23 @@ Ensure the default browser behavior of the `hidden` attribute.
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
+.flex-row {
+  flex-direction: row;
+}
 .flex-row-reverse {
   flex-direction: row-reverse;
 }
 .flex-col {
   flex-direction: column;
 }
+.flex-wrap {
+  flex-wrap: wrap;
+}
 .items-center {
   align-items: center;
+}
+.justify-start {
+  justify-content: flex-start;
 }
 .justify-center {
   justify-content: center;
@@ -629,8 +691,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 .gap-2 {
   gap: 0.5rem;
 }
+.gap-10 {
+  gap: 2.5rem;
+}
 .overflow-hidden {
   overflow: hidden;
+}
+.overflow-x-hidden {
+  overflow-x: hidden;
 }
 .overflow-y-hidden {
   overflow-y: hidden;

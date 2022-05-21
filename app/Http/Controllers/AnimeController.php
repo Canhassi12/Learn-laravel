@@ -15,8 +15,10 @@ class AnimeController extends Controller
     public function index()
     {
         $fds = 'fds';
+
+        $animes = Anime::all();
         // return view('index', ['fds'=> $fds]); // array associativo
-        return view('index', compact('fds'));
+        return view('index', compact('fds', 'animes'));
     }
 
     
@@ -68,9 +70,9 @@ class AnimeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Anime $anime)
     {
-        //
+        return view('edit', compact('anime'));
     }
 
     /**
@@ -80,9 +82,25 @@ class AnimeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Anime $anime, Request $request)
     {
-        //
+        // $inputs= $request->all();
+
+        // $anime->name = $inputs['name'];
+        // $anime->score = $inputs['score'];
+        // $anime->rewatched = $inputs['rewatched'];
+        
+        // $anime->save();
+
+        // XGH = XTREME GO HORSE (SE ESTA FUNCIONANDO A GENTE NÃO MEXE!!)
+
+        $inputs = $request->except(['_token', '_method']);
+
+        $anime->fill(collect($inputs)->toArray());
+
+        $anime->save();
+
+        return redirect('/');
     }
 
     /**
@@ -93,6 +111,8 @@ class AnimeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Anime::where('id', $id)->delete();
+
+        return redirect('/');
     }
 }
