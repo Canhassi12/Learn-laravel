@@ -1,30 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>LearnLaravel | index </title>
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-</head>
-<body class="bg-neutral-900 m-0">
-    <header class="nav flex flex-row-reverse border-2 border-neutral-800 w-full h-16 bg-gradient-to-br from-purple-900 to-pink-700">
-        <nav class="w-full h-16 gap-5 ml-32 contents">
-            <div class="flex w-80 justify-between mr-28 text-gray-300">
-                <button class="text-center font-bold italic">
-                    <p>Canhassi</p>
-                </button>
-                <button>
-                    <p class="font-bold italic text-base" >Aaaa</p>
-                </button>
-                <button class="text-center font-bold italic">
-                    <p>list</p>
-                </button> 
-            </div>
-        </nav>
-    </header>
-    <h1 class="flex justify-center text-gray-300 text-5xl ml- ">Anime</h1>
+@extends('layout.base')
+
+@section('123')
     <section class="flex items-center justify-center">
         <div class="p-1 bg-gradient-to-tl from-pink-700 to-purple-900 mt-32 rounded">
             <form class="flex justify-between flex-col gap-2 border-4 px-2 border-neutral-800  text-pink-400 bg-neutral-800 font-bold" 
@@ -34,17 +10,17 @@
             <input type="hidden" name="_method" value="PUT">
             <div class="flex flex-col w-80 gap-2">
                <label class="text-2xl">Name</label>
-                <input name="name" autocomplete="off" class="border-2 rounded border-pink-400 outline-none focus:border-pink-600 text-neutral-900" type="text"> 
+                <input name="name" value="{{$anime->name}}" autocomplete="off" class="border-2 rounded border-pink-400 outline-none focus:border-pink-600 text-neutral-900" type="text"> 
             </div>
 
             <div class="flex flex-col w-80 gap-2">
                 <label class="text-2xl">Score</label>
-                <input name="score" autocomplete="off" class="border-2 rounded border-pink-400 outline-none focus:border-pink-600 text-neutral-900"> 
+                <input name="score" value="{{$anime->score}}" autocomplete="off" class="border-2 rounded border-pink-400 outline-none focus:border-pink-600 text-neutral-900"> 
             </div>
             
             <div class="flex flex-col w-80 gap-2">
                <label class="text-2xl">rewatched</label>
-                <input name="rewatched" autocomplete="off" class="border-2 rounded border-pink-400 outline-none focus:border-pink-600 text-neutral-900"> 
+                <input name="rewatched" value="{{$anime->rewatched}}" autocomplete="off" class="border-2 rounded border-pink-400 outline-none focus:border-pink-600 text-neutral-900"> 
             </div>
                 <button class="mt-8 mb-4 rounded text-white font-bold text-lg hover:bg-pink-500 bg-pink-600 hover:transition-all hover:duration-700 py-1 uppercase
                     type="submit">update 
@@ -52,3 +28,4 @@
             </form>
         </div> 
     </section>
+@endsection

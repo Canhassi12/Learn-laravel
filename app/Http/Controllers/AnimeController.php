@@ -14,11 +14,11 @@ class AnimeController extends Controller
      */
     public function index()
     {
-        $fds = 'fds';
+        
 
         $animes = Anime::all();
         // return view('index', ['fds'=> $fds]); // array associativo
-        return view('index', compact('fds', 'animes'));
+        return view('index', compact('animes'));
     }
 
     

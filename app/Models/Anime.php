@@ -9,5 +9,5 @@ class Anime extends Model
 {
     use HasFactory;
 
-    protected $fillable = [ 'name', 'score', 'rewatched' ];
+    protected $fillable = [ 'name', 'score', 'rewatched'];
 }
