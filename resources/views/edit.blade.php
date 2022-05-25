@@ -1,5 +1,7 @@
 @extends('layout.base')
 
+@section('title', 'LearnLaravel | Edit ')
+
 @section('123')
     <section class="flex items-center justify-center">
         <div class="p-1 bg-gradient-to-tl from-pink-700 to-purple-900 mt-32 rounded">

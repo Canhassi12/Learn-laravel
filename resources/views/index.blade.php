@@ -1,7 +1,9 @@
 @extends('layout.base')
+
+@section('title', 'LearnLaravel | index')
       
 @section('123')
-    <section class="flex items-center justify-center">
+    <section class="flex justify-center">
         <div class="p-1 bg-gradient-to-tl from-pink-700 to-purple-900 mt-32 rounded">
             <form class="flex justify-between flex-col gap-2 border-4 px-2 border-neutral-800  text-pink-400 bg-neutral-800 font-bold" 
             method="POST" action="{{route('anime.store')}}"
@@ -28,7 +30,7 @@
         </div> 
     </section>
     <section class="flex justify-center items-center gap-10 flex-row flex-wrap mx-auto my-32"
-       >
+    >
         @foreach ($animes as $anime)        
         <div class="p-1 bg-gradient-to-tl from-pink-700 to-purple-900 mt-10 rounded
         w-1/4">
@@ -76,7 +78,6 @@
             </div> 
         @endforeach
     </section> 
-    
 @endsection
 
 
