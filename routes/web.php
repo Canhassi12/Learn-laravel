@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AnimeController;
 use App\Http\Controllers\AnimeListController;
+use App\Http\Middleware\Authenticate;
+use GuzzleHttp\Middleware;
 use Illuminate\Cache\RedisTaggedCache;
 
 /*
@@ -21,7 +23,7 @@ Route::get('/', function () {
 });
 
 Route::get('/anime', [AnimeController::class, 'index'])->name('site.index');
-
+    
 Route::post('/anime', [AnimeController::class, 'store'])->name('anime.store');
 
 Route::prefix('/anime')->group(function () {

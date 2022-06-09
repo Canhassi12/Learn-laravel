@@ -447,14 +447,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 8rem;
   margin-bottom: 8rem;
 }
-.my-5 {
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
-}
-.my-2 {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-}
 .my-1 {
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -495,20 +487,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .-mt-px {
   margin-top: -1px;
 }
-.ml-32 {
-  margin-left: 8rem;
-}
-.mr-28 {
-  margin-right: 7rem;
-}
 .flex {
   display: flex;
 }
 .grid {
   display: grid;
-}
-.contents {
-  display: contents;
 }
 .hidden {
   display: none;
@@ -652,9 +635,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .to-purple-900 {
   --tw-gradient-to: #581c87;
 }
-.to-pink-700 {
-  --tw-gradient-to: #be185d;
-}
 .to-pink-600 {
   --tw-gradient-to: #db2777;
 }
@@ -680,14 +660,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
-.py-5 {
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
-}
-.py-2 {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
 .pt-8 {
   padding-top: 2rem;
 }
@@ -706,13 +678,21 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
-.text-base {
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
 .text-5xl {
   font-size: 3rem;
   line-height: 1;
+}
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
+}
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
 }
 .font-bold {
   font-weight: 700;
@@ -722,9 +702,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .uppercase {
   text-transform: uppercase;
-}
-.italic {
-  font-style: italic;
 }
 .leading-7 {
   line-height: 1.75rem;

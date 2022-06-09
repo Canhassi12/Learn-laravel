@@ -11,23 +11,31 @@
                 @csrf 
                 <div class="flex flex-col w-80 gap-2">
                     <label class="text-2xl">Name</label>
-                    <input autocomplete="off" name="name" class="border-2 rounded border-pink-400 outline-none focus:border-pink-600 text-neutral-900" type="text"> 
+                    <input autocomplete="off" name="name" required maxlength="23" class="border-2 rounded border-pink-400 outline-none focus:border-pink-600 text-neutral-900" type="text">
                 </div>
 
                 <div class="flex flex-col w-80 gap-2">
                     <label class="text-2xl">Score</label>
-                    <input autocomplete="off" name="score" class="border-2 rounded border-pink-400 outline-none focus:border-pink-600 text-neutral-900"> 
+                    <input autocomplete="off" min="0" max="10" type="number" required name="score" class="border-2 rounded border-pink-400 outline-none focus:border-pink-600 text-neutral-900"> 
                 </div>
             
                 <div class="flex flex-col w-80 gap-2">
                     <label class="text-2xl">rewatched</label>
-                    <input autocomplete="off" name="rewatched" class="border-2 rounded border-pink-400 outline-none focus:border-pink-600 text-neutral-900"> 
+                    <input type="number" min="1" max="999" autocomplete="off" name="rewatched" required class="border-2 rounded border-pink-400 outline-none focus:border-pink-600 text-neutral-900"> 
                 </div>
+
+                @if(session()->has('error'))
+                    <div class="alert alert-danger font text-xl">
+                        {{ session()->get('error') }}
+                    </div>
+                @endif
+
                 <button class="mt-8 mb-4 rounded text-white font-bold text-lg hover:bg-pink-500 bg-pink-600 hover:transition-all hover:duration-700 py-1 uppercase
                 type="submit">register 
                 </button>
             </form>
         </div> 
+
     </section>
     <section class="flex justify-center items-center gap-10 flex-row flex-wrap mx-auto my-32"
     >

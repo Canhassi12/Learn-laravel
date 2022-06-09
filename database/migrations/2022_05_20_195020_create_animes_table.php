@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('animes', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->integer('score');
-            $table->integer('rewatched');
+            $table->string('name')->nullable()->unique();
+            $table->integer('score')->nullable();
+            $table->integer('rewatched')->default(1);
             $table->timestamps();  
         });
     }

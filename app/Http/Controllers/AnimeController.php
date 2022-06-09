@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Anime;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreAnimeRequest;
+use Illuminate\Support\Facades\Validator;
 
 class AnimeController extends Controller
 {
@@ -13,15 +15,12 @@ class AnimeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        
-
+    {     
         $animes = Anime::all();
         // return view('index', ['fds'=> $fds]); // array associativo
         return view('index', compact('animes'));
     }
 
-    
     /**
      * Show the form for creating a new resource.
      *
@@ -39,8 +38,22 @@ class AnimeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {       
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:23|',
+            'score' => 'required|integer|min:0|max:10',
+            'rewatched' => 'required|integer|min:1|max:999' 
+        ]);
+
+        if ($validator->fails()) {
+            $messages = $validator->getMessageBag();
+
+            return redirect()->back()->with('error', $messages->first());
+        }
+
         $inputs = $request->all();
+
+        // $fodase = $request->validated()
 
         $anime = new Anime();
 
@@ -50,7 +63,7 @@ class AnimeController extends Controller
         
         $anime->save();
 
-        return redirect()->back()->with('success', 'anime add with success');
+        return redirect('/');
     }
 
     /**

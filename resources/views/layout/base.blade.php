@@ -14,7 +14,10 @@
 <body class="bg-neutral-900 m-0">
     <header class="nav flex flex-row-reverse border-2 border-neutral-800 w-full h-16 bg-gradient-to-br from-purple-900 to-pink-600">
         <nav class="w-full h-16 gap-5  flex justify-center text-white">
-            <h1 class="flex my-1 justify-center text-5xl">Anime</h1>
+            <a href="">
+                <h1 class="flex my-1 justify-center text-5xl">Anime</h1>    
+            </a>
+            
         </nav>
     </header>
     @yield('123')
