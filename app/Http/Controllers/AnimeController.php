@@ -14,21 +14,12 @@ class AnimeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {     
         $animes = Anime::all();
+
         // return view('index', ['fds'=> $fds]); // array associativo
         return view('index', compact('animes'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        
     }
 
     /**
@@ -38,43 +29,24 @@ class AnimeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {       
+    { 
         $validator = Validator::make($request->all(), [
-            'name' => 'required|max:23|',
+            'name' => 'required|max:23',
             'score' => 'required|integer|min:0|max:10',
             'rewatched' => 'required|integer|min:1|max:999' 
         ]);
 
         if ($validator->fails()) {
-            $messages = $validator->getMessageBag();
+            $messages = $validator->getMessageBag()->first();
 
-            return redirect()->back()->with('error', $messages->first());
+            return response()->view( 'index', compact('messages'));
         }
 
         $inputs = $request->all();
 
-        // $fodase = $request->validated()
-
-        $anime = new Anime();
-
-        $anime->name = $inputs['name'];
-        $anime->score = $inputs['score'];
-        $anime->rewatched = $inputs['rewatched'];
-        
-        $anime->save();
+        Anime::create($inputs);
 
         return redirect('/');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -97,16 +69,6 @@ class AnimeController extends Controller
      */
     public function update(Anime $anime, Request $request)
     {
-        // $inputs= $request->all();
-
-        // $anime->name = $inputs['name'];
-        // $anime->score = $inputs['score'];
-        // $anime->rewatched = $inputs['rewatched'];
-        
-        // $anime->save();
-
-        // XGH = XTREME GO HORSE (SE ESTA FUNCIONANDO A GENTE NÃO MEXE!!)
-
         $inputs = $request->except(['_token', '_method']);
 
         $anime->fill(collect($inputs)->toArray());
