@@ -21,11 +21,11 @@ use Illuminate\Cache\RedisTaggedCache;
 
 Route::get(secure_url('/'), [AnimeController::class, 'index'])->name('site.index');
     
-Route::middleware('throttle:manyRequest', 'putToken')->post(secure_url('/'), [AnimeController::class, 'store'])->middleware('resetToken')->name('anime.store');
+Route::middleware('throttle:manyRequest', 'putToken')->post('/', [AnimeController::class, 'store'])->middleware('resetToken')->name('anime.store');
 
-Route::get(secure_url('/edit/{anime}'), [AnimeController::class, 'edit'])->name('anime.edit'); 
-Route::middleware('throttle:manyRequest')->put(secure_url('/update/{anime}'), [AnimeController::class, 'update'])->name('anime.update'); 
-Route::delete(secure_url('/delete/{anime}'), [AnimeController::class, 'destroy'])->name('anime.delete');
+Route::get('/edit/{anime}', [AnimeController::class, 'edit'])->name('anime.edit'); 
+Route::middleware('throttle:manyRequest')->put('/update/{anime}', [AnimeController::class, 'update'])->name('anime.update'); 
+Route::delete('/delete/{anime}', [AnimeController::class, 'destroy'])->name('anime.delete');
 
 
 Route::fallback(function () {
