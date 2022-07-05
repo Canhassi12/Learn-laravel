@@ -28,7 +28,7 @@ Route::middleware('throttle:manyRequest')->post('/anime', [AnimeController::clas
 
 Route::prefix('/anime')->group(function () {
     Route::get('/edit/{anime}', [AnimeController::class, 'edit'])->name('anime.edit'); 
-    Route::put('/update/{anime}', [AnimeController::class, 'update'])->name('anime.update'); 
+    Route::middleware('throttle:manyRequest')->put('/update/{anime}', [AnimeController::class, 'update'])->name('anime.update'); 
 
     Route::delete('/delete/{anime}', [AnimeController::class, 'destroy'])->name('anime.delete');
 });  
