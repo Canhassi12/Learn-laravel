@@ -23,9 +23,9 @@ Route::get('/', [AnimeController::class, 'index'])->name('site.index');
     
 Route::middleware('throttle:manyRequest', 'putToken')->post('/', [AnimeController::class, 'store'])->middleware('resetToken')->name('anime.store');
 
-Route::get('/{anime}', [AnimeController::class, 'edit'])->name('anime.edit'); 
-Route::middleware('throttle:manyRequest')->put('/{anime}', [AnimeController::class, 'update'])->name('anime.update'); 
-Route::delete('/{anime}', [AnimeController::class, 'destroy'])->name('anime.delete');
+Route::get('/edit/{anime}', [AnimeController::class, 'edit'])->name('anime.edit'); 
+Route::middleware('throttle:manyRequest')->put('/update/{anime}', [AnimeController::class, 'update'])->name('anime.update'); 
+Route::delete('/delete/{anime}', [AnimeController::class, 'destroy'])->name('anime.delete');
 
 
 Route::fallback(function () {
