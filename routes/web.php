@@ -24,7 +24,7 @@ Route::get('/', function () {
 
 Route::get('/anime', [AnimeController::class, 'index'])->name('site.index');
     
-Route::post('/anime', [AnimeController::class, 'store'])->name('anime.store');
+Route::middleware('throttle:manyRequest')->post('/anime', [AnimeController::class, 'store'])->name('anime.store');
 
 Route::prefix('/anime')->group(function () {
     Route::get('/edit/{anime}', [AnimeController::class, 'edit'])->name('anime.edit'); 
