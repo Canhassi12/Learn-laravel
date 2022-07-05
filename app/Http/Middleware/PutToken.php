@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class RegenerateTokenMiddleware
+class PutToken
 {
     /**
      * Handle an incoming request.
@@ -16,7 +16,11 @@ class RegenerateTokenMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        $request->session()->regenerateToken(); // regenerate token
+        $fds = $request->all();
+
+        $token = $fds['_token'];
+
+        session()->put('_token', $token);
 
         return $next($request);
     }

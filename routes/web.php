@@ -24,12 +24,11 @@ Route::get('/', function () {
 
 Route::get('/anime', [AnimeController::class, 'index'])->name('site.index');
     
-Route::middleware('throttle:manyRequest')->post('/anime', [AnimeController::class, 'store'])->name('anime.store');
+Route::middleware('throttle:manyRequest', 'putToken')->post('/anime', [AnimeController::class, 'store'])->middleware('resetToken')->name('anime.store');
 
 Route::prefix('/anime')->group(function () {
     Route::get('/edit/{anime}', [AnimeController::class, 'edit'])->name('anime.edit'); 
-    Route::middleware('throttle:manyRequest', 'regenarateToken')->put('/update/{anime}', [AnimeController::class, 'update'])->name('anime.update'); 
-
+    Route::middleware('throttle:manyRequest')->put('/update/{anime}', [AnimeController::class, 'update'])->name('anime.update'); 
     Route::delete('/delete/{anime}', [AnimeController::class, 'destroy'])->name('anime.delete');
 });  
 
