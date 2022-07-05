@@ -8,7 +8,7 @@
         @yield('title')
     </title>
     <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
 </head>
 
 <body class="bg-neutral-900 m-0">
