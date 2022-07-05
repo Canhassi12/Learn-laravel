@@ -21,7 +21,7 @@ use Illuminate\Cache\RedisTaggedCache;
 
 Route::get('/', [AnimeController::class, 'index'])->name('site.index');
     
-Route::middleware('throttle:manyRequest', 'putToken')->post('/anime', [AnimeController::class, 'store'])->middleware('resetToken')->name('anime.store');
+Route::middleware('throttle:manyRequest', 'putToken')->post('/', [AnimeController::class, 'store'])->middleware('resetToken')->name('anime.store');
 
 Route::get('/edit/{anime}', [AnimeController::class, 'edit'])->name('anime.edit'); 
 Route::middleware('throttle:manyRequest')->put('/update/{anime}', [AnimeController::class, 'update'])->name('anime.update'); 
