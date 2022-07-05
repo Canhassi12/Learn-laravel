@@ -7,7 +7,7 @@
     <title>
         @yield('title')
     </title>
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 
@@ -17,7 +17,6 @@
             <a href="">
                 <h1 class="flex my-1 justify-center text-5xl">Anime</h1>    
             </a>
-            
         </nav>
     </header>
     @yield('123')
