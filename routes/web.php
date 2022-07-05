@@ -19,7 +19,7 @@ use Illuminate\Cache\RedisTaggedCache;
 */
 
 
-Route::get(secure_url('/'), [AnimeController::class, 'index'])->name('site.index');
+Route::get('/', [AnimeController::class, 'index'])->name('site.index');
     
 Route::middleware('throttle:manyRequest', 'putToken')->post('/', [AnimeController::class, 'store'])->middleware('resetToken')->name('anime.store');
 
