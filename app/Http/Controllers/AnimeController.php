@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Anime;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreAnimeRequest;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
 
 class AnimeController extends Controller
@@ -26,9 +27,9 @@ class AnimeController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(Request $request): \Illuminate\Http\RedirectResponse
     { 
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:23',
@@ -41,6 +42,7 @@ class AnimeController extends Controller
 
             return response()->view( 'index', compact('messages'));
         }
+
 
         $inputs = $request->all();
 
