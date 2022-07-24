@@ -26,13 +26,14 @@ class AnimeControllerTest extends TestCase
             ->assertValid();
     }
 
+    /** @test */
     public function delete_anime()
     {
         $animeTest = Anime::factory()->create();
 
-        $fds = $animeTest['id'];
+        $id = $animeTest['id'];
 
-        $response = $this->delete("/delete/{$fds}");
+        $response = $this->delete("/delete/{$id}");
 
         $response->assertRedirect();
     }

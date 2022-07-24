@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\Anime;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -21,9 +22,14 @@ class PageRenderingTest extends TestCase
         $response->assertViewIs('index');
     }
 
+    /** @test */
     public function rendering_edit_page() 
     {
-        $response = $this->get('/edit');
+        $animeTest = Anime::factory()->create();
+
+        $id = $animeTest->id;
+
+        $response = $this->get("/edit/{$id}");
 
         $response->assertViewIs('edit');
     }
